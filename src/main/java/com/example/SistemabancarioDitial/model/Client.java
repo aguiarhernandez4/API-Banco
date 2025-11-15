@@ -20,7 +20,6 @@ import jakarta.validation.constraints.Size;
 
 
 
-@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Setter
