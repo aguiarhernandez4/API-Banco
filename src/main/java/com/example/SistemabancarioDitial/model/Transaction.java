@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -46,15 +48,15 @@ public class Transaction {
     private String dataHoraTransação;
 
 
-    @Column(name = "contaOrigem", nullable = false)
-    @NotBlank(message = "A conta de origem não pode estar em branco")
-    private long contaOrigem;
+    @ManyToOne
+    @JoinColumn(name = "id_account_origem")
+    private Client idClient;
 
 
-    @NotBlank(message = "A conta de destino não pode estar em branco")
-    @Column(name = "contaDestino", nullable = true)
-    private long contaDestino;
 
+    @ManyToOne
+    @JoinColumn(name = "id_account_destino")    
+    private Account id_account;
 
 
     @Size(max = 255, message = "As observações não podem exceder 255 caracteres")
