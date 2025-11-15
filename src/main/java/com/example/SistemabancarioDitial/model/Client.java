@@ -31,11 +31,9 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_client", nullable = false)
-    @OneToMany
     private Long id_client;
 
     @Column(name = "name", nullable = false)
-    @OneToMany
     private String name;
 
     @Column(name = "cpf", nullable = false, unique = true)

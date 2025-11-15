@@ -1,15 +1,8 @@
 package com.example.SistemabancarioDitial.model;
 
+import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -47,16 +40,14 @@ public class Transaction {
     @Column(name = "dataHoraTransação", nullable = false)
     private String dataHoraTransação;
 
-
     @ManyToOne
     @JoinColumn(name = "id_account_origem")
-    private Client idClient;
-
+    private Client client;
 
 
     @ManyToOne
-    @JoinColumn(name = "id_account_destino")    
-    private Account id_account;
+    @JoinColumn(name = "id_account_destino")
+    private Account client2;
 
 
     @Size(max = 255, message = "As observações não podem exceder 255 caracteres")
