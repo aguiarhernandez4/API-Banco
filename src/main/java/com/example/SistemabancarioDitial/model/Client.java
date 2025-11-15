@@ -32,8 +32,9 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @Column(name = "id_client", nullable = false)
+    @OneToMany
+    private Long id_client;
 
     @Column(name = "name", nullable = false)
     @OneToMany
