@@ -1,6 +1,6 @@
 package com.example.SistemabancarioDitial.model;
 
-import org.springframework.boot.convert.DataSizeUnit;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -56,7 +56,7 @@ public class Client {
 
     @Column(name = "Data de Nascimento", nullable = false)
     @NotBlank(message = "A data de nascimento não pode estar em branco")
-    @Size(max = 10, message = "A data de nascimento deve ter no máximo 10 caracteres")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private String datanascimento;
 
     @Column(name = "endereço", nullable = false)
