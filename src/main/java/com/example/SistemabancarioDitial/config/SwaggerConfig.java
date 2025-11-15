@@ -33,13 +33,11 @@ public class SwaggerConfig {
                         )
                 )
 
-                // Servidores opcionais
                 .servers(java.util.List.of(
                         new Server().url("http://localhost:8080").description("Servidor Local"),
                         new Server().url("https://api.meubanco.com").description("Servidor de Produção")
                 ))
 
-                // Segurança global (se precisar Bearer, JWT etc.)
                 .components(new Components()
                         .addSecuritySchemes("bearerAuth",
                                 new SecurityScheme()
