@@ -1,5 +1,6 @@
 package com.example.SistemabancarioDitial.model;
 
+import jakarta.validation.constraints.Email;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
@@ -41,7 +42,7 @@ public class Client {
     @NotBlank(message = "O CPF não pode estar em branco")
     private String cpf;
 
-
+    @Email
     @Column(name = "email", nullable = false, unique = true)
     @NotBlank(message = "O e-mail não pode estar em branco")
     private String email;
