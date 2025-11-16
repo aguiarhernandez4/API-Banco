@@ -8,11 +8,11 @@ import lombok.Data;
 @Builder
 @Data
 public class TransactionDTO {
-    private long idTransação;
-    private String tipoTrasação;
-    private double valorTransação;
-    private String dataHoraTransação;
+    private long idTransacao;
+    private String tipoTrasacao;
+    private double valorTransacao;
+    private String dataHoraTransacao;
     private Client client;
     private Account client2;
-    private String observações;
+    private String observacoes;
 }
