@@ -1,5 +1,10 @@
 package com.example.SistemabancarioDitial.dto;
 
-public class DepositRequest {
+import lombok.Builder;
+import lombok.Data;
 
+@Builder
+@Data
+public class DepositRequest {
+    
 }

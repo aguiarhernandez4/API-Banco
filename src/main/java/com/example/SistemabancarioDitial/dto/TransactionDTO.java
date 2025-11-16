@@ -15,5 +15,4 @@ public class TransactionDTO {
     private Client client;
     private Account client2;
     private String observações;
-
 }
