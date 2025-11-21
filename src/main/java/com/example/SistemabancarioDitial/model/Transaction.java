@@ -1,19 +1,17 @@
 package com.example.SistemabancarioDitial.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
 
 
 @Table(name = "transactions")
 @Setter
 @Getter
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
@@ -22,23 +20,23 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idTransação", nullable = false)
-    private long idTransação;
+    private long idTransacao;
 
 
     @NotBlank(message = "O tipo de transação não pode estar em branco")
     @Column(name = "tipoTransação", nullable = false)
-    private String tipoTransação; 
+    private String tipoTransacao;
 
 
     @NotBlank(message = "O valor da transação não pode estar em branco")
     @Column(name = "valorTransação", nullable = false)
-    private double valorTransação;
+    private double valorTransacao;
 
 
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @NotBlank(message = "A data e hora da transação não pode estar em branco")
     @Column(name = "dataHoraTransação", nullable = false)
-    private String dataHoraTransação;
+    private String dataHoraTransacao;
 
     @ManyToOne
     @JoinColumn(name = "id_account_origem")
@@ -52,6 +50,6 @@ public class Transaction {
 
     @Size(max = 255, message = "As observações não podem exceder 255 caracteres")
     @Column(name = "observações")
-    private String observações;
+    private String observacoes;
 }
 

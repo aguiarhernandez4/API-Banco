@@ -1,19 +1,17 @@
 package com.example.SistemabancarioDitial.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
 
 
 @Table(name = "Account")
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
 @Entity
