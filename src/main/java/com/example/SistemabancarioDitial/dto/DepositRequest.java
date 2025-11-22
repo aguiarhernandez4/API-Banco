@@ -1,10 +1,10 @@
 package com.example.SistemabancarioDitial.dto;
 
-import lombok.Builder;
 import lombok.Data;
 
-@Builder
 @Data
 public class DepositRequest {
-    
+    private Long clientId;
+    private Long accountId;
+    private Double value;
 }
