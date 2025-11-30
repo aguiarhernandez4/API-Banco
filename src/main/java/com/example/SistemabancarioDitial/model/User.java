@@ -24,17 +24,9 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @ManyToOne
-    @JoinColumn(name = "email")
-    private Client email;
+    @Column(name = "role", nullable = false)
+    private String role;
 
-    @ManyToOne
-    @JoinColumn(name = "senha")
-    private Client senha;
-
-    @ManyToOne
-    @JoinColumn(name = "cpf")
-    private Client cpf;
 
     private boolean active = true;
 

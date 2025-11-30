@@ -1,19 +1,24 @@
 package com.example.SistemabancarioDitial.model;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
-import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+
+import lombok.Setter;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+
 
 import java.time.LocalDate;
 
@@ -41,7 +46,6 @@ public class Client {
     @NotBlank(message = "O CPF não pode estar em branco")
     private String cpf;
 
-    @Email
     @Column(name = "email", nullable = false, unique = true)
     @NotBlank(message = "O e-mail não pode estar em branco")
     private String email;
@@ -52,8 +56,7 @@ public class Client {
     private String password;
 
     @Column(name = "data_nascimento", nullable = false)
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate datanascimento;
+    private String datanascimento;
 
     @Column(name = "endereco", nullable = false)
     @NotBlank(message = "O endereço não pode estar em branco")
