@@ -3,6 +3,7 @@ package com.example.SistemabancarioDitial.service;
 import com.example.SistemabancarioDitial.dto.ClientDTO;
 import com.example.SistemabancarioDitial.model.Client;
 import com.example.SistemabancarioDitial.model.User;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import com.example.SistemabancarioDitial.repository.ClientRepository;
 import org.springframework.web.client.RestClient;
 
 import javax.sql.DataSource;
+import java.util.Optional;
 
 
 @Service
@@ -47,6 +49,14 @@ public class ClientService {
         return clientRepo.save(client);
     }
 
-
+    @Transactional
+    public void excluirClient(Long id){
+        Optional<Client> client = clientRepo.findById(id);
+        if (client.isPresent()) {
+            clientRepo.deleteById(id);
+        } else {
+            throw new RuntimeException("Cliente não encontrado com ID" + id);
+        }
+    }
 
 }
