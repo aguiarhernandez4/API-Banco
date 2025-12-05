@@ -11,6 +11,7 @@ import com.example.SistemabancarioDitial.repository.ClientRepository;
 import org.springframework.web.client.RestClient;
 
 import javax.sql.DataSource;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -57,6 +58,15 @@ public class ClientService {
         } else {
             throw new RuntimeException("Cliente não encontrado com ID" + id);
         }
+    }
+
+    public List<Client> listarClientes(){
+        return clientRepo.findAll();
+    }
+
+    public Client buscandoPeloId(Long id){
+        return clientRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
     }
 
 }
