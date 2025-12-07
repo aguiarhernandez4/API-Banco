@@ -30,12 +30,12 @@ public class ClientService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+
     public Client salvar(ClientDTO dto) {
 
         String cpfLimpo = dto.getCpf().replaceAll("\\D", "");
         String telefoneLimpo = dto.getTelefone().replaceAll("\\D", "");
         User user = new User();
-//        user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         Client client = Client.builder()
                 .name(dto.getName())
@@ -50,6 +50,7 @@ public class ClientService {
         return clientRepo.save(client);
     }
 
+
     @Transactional
     public void excluirClient(Long id){
         Optional<Client> client = clientRepo.findById(id);
@@ -60,9 +61,11 @@ public class ClientService {
         }
     }
 
+
     public List<Client> listarClientes(){
         return clientRepo.findAll();
     }
+
 
     public Client buscandoPeloId(Long id){
         return clientRepo.findById(id)
