@@ -1,8 +1,11 @@
 package com.example.SistemabancarioDitial.model;
 
 import jakarta.persistence.*;
-import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
+import lombok.Builder;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.Getter;
 
 
 import jakarta.validation.constraints.NotBlank;
@@ -33,13 +36,12 @@ public class Account {
     @Column(name = "saldo_atual", nullable = false)
     private double saldo_atual;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    @Column(name = "criação_cota", nullable = false)
-    private String criacao_conta;
+    @Column(name = "datacriação_cota", nullable = false)
+    private String datacriacao_conta;
 
-    @ManyToOne
-    @JoinColumn(name = "id_client")
-    private Client client;
+//    @ManyToOne
+//    @JoinColumn(name = "id_client")
+//    private Client client;
 
 }
 
