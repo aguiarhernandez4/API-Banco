@@ -8,4 +8,5 @@ import com.example.SistemabancarioDitial.model.Account;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
 
+    boolean existsByNumbercount(long numbercount);
 }

@@ -20,20 +20,25 @@ public class AccountService {
     AccountRepository accountRepo;
 
     public Account salvarAccount(AccountDTO dto) {
+        // Define o saldo inicial da conta como 0
+        dto.setSaldo_atual(0.0);
 
-        AccountDTO accountdto = new AccountDTO();
-        accountdto.setSaldo_atual(0.0);
-
-        Random numbercount = new Random();
-        long numeroConta = numbercount.nextLong(100000, 999999);
+        // Gera número de conta único
+        Random random = new Random();
+        long numeroConta;
+        do {
+            numeroConta = random.nextLong(100000, 999999);
+        } while (accountRepo.existsByNumbercount(numeroConta));
 
         dto.setNumbercount(numeroConta);
+        System.out.println("Número de conta gerado: " + numeroConta);
 
+        // Cria a entidade Account
         Account account = Account.builder()
-                .numbercount(dto.getNumbercount())
                 .agency(dto.getAgency())
                 .saldo_atual(dto.getSaldo_atual())
                 .datacriacao_conta(dto.getDatacriacao_conta())
+                .numbercount(dto.getNumbercount()) // não esquecer de setar o número!
                 .build();
 
         return accountRepo.save(account);
